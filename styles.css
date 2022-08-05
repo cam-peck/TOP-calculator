@@ -1,0 +1,26 @@
+button {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+}
+
+.num {
+    padding: 75px;
+}
+
+.container {
+    border: 5px solid blue;
+    max-width: 650px;
+    margin: auto;
+}
+
+.row {
+    border: 5px solid green;
+    display: flex;
+    
+}
+
+.column {
+    border: 5px solid pink;
+    width: 100%;
+}

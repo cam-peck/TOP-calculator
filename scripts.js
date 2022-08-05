@@ -26,7 +26,7 @@ function operate(operator, num1, num2) {
     for (const key in operatorObj) {
         if (key === operator) {
             const operation = operatorObj[key]
-            // return evaluated result that operation on input nums
+            // return evaluated result of that operation on input nums
             return operation(num1, num2)
         }
     }
