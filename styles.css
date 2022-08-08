@@ -50,8 +50,11 @@ button:hover {
 .button-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    height: 100%;
     grid-gap: 10px;
     padding: 10px;
     border-radius: 15px;
+}
+
+#evaluate {
+    grid-column: 3 / span 2;
 }
