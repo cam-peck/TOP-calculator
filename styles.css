@@ -27,23 +27,26 @@ button:hover {
     background-color: lightgray;
     border: 3px solid black;
     border-radius: 15px;
+    width: 300px;
+    height: 100%;
 }
 
 .calculator-screen {
-    padding: 20px;
+    padding: 15px 20px;
     background-color: white;
     border: 3px solid black;
     border-radius: 15px;
     text-align: end;
-    margin: 20px 10px; 
+    margin: 20px 10px 15px 10px; 
 }
 
 .data-history {
-    min-height: 16px;
+    min-height: 20px;
+    padding-bottom: 5px;
 }
 
 .data-input {
-    min-height: 32px;
+    min-height: 36px;
     font-size: 28px;
 }
 
