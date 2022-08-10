@@ -1,8 +1,5 @@
 // calculator functions
 
-// check for dividing by zero
-// prevent overflow on huge numbers
-// fix rounding on really really small numbers
 // add keyboard functionality
 
 // calculation variables
@@ -21,11 +18,6 @@ const allClearButton = document.querySelector('#all-clear');
 const backspaceButton = document.querySelector('#clear');
 const dataHistoryScreen = document.querySelector('.data-history');
 const dataInputScreen = document.querySelector('.data-input');
-
-Number.prototype.countDecimals = function () {
-    if(Math.floor(this.valueOf()) === this.valueOf()) return 0;
-    return this.toString().split(".")[1].length || 0; 
-}
 
 function add(num1, num2) {
     return num1 + num2;
@@ -61,12 +53,18 @@ function operate(operator, num1, num2) {
     }
 }
 
-function round(num) {
+function checkLength(string) {
     // if number of digits > 14
-        // calculate number of digits before and after the decimal
-        // calculate number of decimals to keep 
-        // round up the final decimal
-    // return the answer
+    if (string.length > 14) {
+        num1 = '';
+        num2 = '';
+        operator = '';
+        hasCalced = false;
+        dataHistoryScreen.textContent = '';
+        dataInputScreen.textContent = 'overflow';
+        console.log('reset')
+    }
+        
 }
 
 numberButtons.forEach((numButton) => {
@@ -76,12 +74,14 @@ numberButtons.forEach((numButton) => {
             num1 += numButton.id;
             dataInputScreen.textContent = `${num1}`;
             console.log(`num1: ${num1}`);
+            checkLength(num1);
         }
         // after we've done a calculation, all future inputs will be num2
         else if (hasCalced === true) {
             num2 += numButton.id;
             dataInputScreen.textContent = `${num2}`;
             console.log(`num2: ${num2}`)
+            checkLength(num2);
         }
     });
 });
@@ -98,6 +98,11 @@ functionButtons.forEach((funcButton) => {
             // get ready for next operation
             num1 = `${roundedResult}`;
             num2 = '';
+            checkLength(num1);
+        }
+        // disable function buttons before numbers have been input
+        else if (!num1) {
+            return
         }
         dataHistoryScreen.textContent = num1 + `${funcButton.id}`;
         // store the current operator the user wants to execute
@@ -143,6 +148,7 @@ evaluateButton.addEventListener('click', () => {
         // get ready for next operation
         num1 = `${roundedResult}`;
         num2 = '';
+        checkLength(num1);
     }
 });
 
