@@ -128,11 +128,13 @@ percentageButton.addEventListener('click', () => {
         const percentageNum2 = `${num2 * .01}`;
         num2 = percentageNum2;
         dataInputScreen.textContent = num2;
+        checkLength(num2);
     }
     else if (hasCalced === false) {
         const percentageNum1 = `${num1 * .01}`;
         num1 = percentageNum1;
         dataInputScreen.textContent = num1;
+        checkLength(num1);
     }
 });
 
